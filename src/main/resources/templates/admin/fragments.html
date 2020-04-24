@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <!--设置移动端的自动缩放-->
+    <meta name="viewport" content="device-width, initial-scale=1.0">
+    <title th:replace="${title}">博客详情</title>
+    <!--引入semantic的CDN-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+    <link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+    <link rel="bookmark" th:href="@{/favicon.ico}"/>
+</head>
+<body>
+<!--导航-->
+<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <a href="" th:href="@{/admin/blogs}"><h2 class="ui teal header item">后台管理</h2></a>
+
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide"><i class="home icon"></i>前台</a>
+            <a href="#" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide" th:classappend="${n == 1} ? 'active'"><i class="map icon"></i>博客</a>
+            <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide" th:classappend="${n == 2} ? 'active'"><i class="idea icon"></i>分类</a>
+            <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide" th:classappend="${n == 3} ? 'active'"><i class="tags icon"></i>标签</a>
+
+            <!--右边头像登录注销-->
+            <div class="right m-item m-mobile-hide menu">
+                <div class="ui dropdown item">
+                    <img src="../../static/images/girl.jpg" th:src="@{/images/girl.jpg}" alt="" class="ui avatar image">
+                    <div class="text" th:text="${session.sessionUser.nickname}">
+                        nickname
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black massive icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+<!--底部-->
+<footer th:fragment="footbar" class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/wechat.jpeg" th:src="@{/images/wechat.jpeg}" class="ui rounded image" alt="" style="width: 120px">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-spaced">友情链接</h4>
+                <div class="ui inverted link list">
+                    <a href="https://www.baidu.com/" class="item" target="_blank">百度</a>
+                    <a href="https://www.google.com/" class="item" target="_blank">Google</a>
+                    <a href="https://www.aliyun.com/" class="item" target="_blank">阿里云</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-spaced">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">karlchen919@gmail.com</a>
+                    <a href="#" class="item">QQ: 279365192</a>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-spaced">介绍</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">
+                    这是一个用SpringBoot 搭建的个人博客网站，主要用来记录学习、生活。希望这些博客或多或少能够帮助到大家。欢迎反馈Bug，如果有什么问题可以加我微信一起交流。加油！
+                </p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright©2020-2021 Owl-Blog Designed by Owl</p>
+    </div>
+
+</footer>
+</body>
+</html>

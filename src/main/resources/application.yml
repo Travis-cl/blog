@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    username: root
+    password: 11223344
+    url: jdbc:mysql://localhost:3306/cl?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  profiles:
+    active: dev
+  thymeleaf:
+    cache: false
+
+
+
+mybatis:
+  type-aliases-package: com.chen.pojo
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+comment.avatar: /images/avatar.jpg

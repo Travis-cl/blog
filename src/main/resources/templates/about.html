@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--引用模块-->
+<head th:replace="~{fragments :: head(~{::title})}">
+    <title>关于我</title>
+</head>
+<body>
+    <!--导航:引用模块-->
+    <nav th:replace="fragments :: navbar(5)"></nav>
+    <!--中间内容-->
+    <div class="m-container m-padded-tb-large animated fadeIn">
+        <div class="ui container">
+            <div class="ui stackable grid">
+                <!--左边图片部分-->
+                <div class="nine wide column">
+                    <img src="../static/images/girl.jpg" th:src="@{/images/hehe.jpeg}"  style="height: 600px" alt="" class="ui rounded image m-shadow-img">
+                </div>
+                <!--右边介绍部分-->
+                <div class="seven wide column">
+                    <div class="ui top attached segment">
+                        <div class="ui header">关于我</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <p class="m-text">
+                            <h5>关于我</h5>
+                            毕业于南京林业大学（校友看过来），居住在太湖之畔”梁溪”。是一个“奔三”的90后，喜欢爬山、看电影、玩游戏，还有Code。
+                        </p>
+                        <p class="m-text">
+                            <h5>项目总结</h5>
+                            这个个人博客的起点是我开启自学java之路，博客的完成表示自学路上的一个里程碑。以后还会添加更多的功能，并对项目体验进行优化。以后自己的一些分享和经验都会在博客中展示。作为自学者我深知其中的艰难困阻，很多问题（包括搭建这个博客遇到的问题）如果没有人教你，你可能会花上一下午的时间去处理，所以如果你也是初学者的话，碰到什么问题了可以来我，我会尽可能的帮助你解决。
+                        </p>
+                        <p class="m-text">
+                        <h5>宣言</h5>
+                        只要学不死，就往死里学！
+                        </p>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui pink left pointing label m-margin-tb-tiny">学习</div>
+                        <div class="ui pink left pointing label m-margin-tb-tiny">编程</div>
+                        <div class="ui pink left pointing label m-margin-tb-tiny">音乐</div>
+                        <div class="ui pink left pointing label m-margin-tb-tiny">守望先锋</div>
+                        <div class="ui pink left pointing label m-margin-tb-tiny">剑网叁</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui blue left pointing label m-margin-tb-tiny">Java</div>
+                        <div class="ui blue left pointing label m-margin-tb-tiny">Vue</div>
+                        <div class="ui blue left pointing label m-margin-tb-tiny">MySQL</div>
+                        <div class="ui blue left pointing label m-margin-tb-tiny">Spring</div>
+                        <div class="ui blue left pointing label m-margin-tb-tiny">Mybatis</div>
+                        <div class="ui blue left pointing label m-margin-tb-tiny">SpringBoot</div>
+                    </div>
+                    <div class="ui bottom attached segment">
+                        <a href="#" class="ui circular icon button"><i class="github icon"></i></a>
+                        <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+                        <a href="#" class="ui qq circular icon button" data-content="279365192"><i class="qq icon"></i></a>
+                    </div>
+
+                    <div class="ui wechat-qr flowing popup transition hidden">
+                        <img src="../static/images/wechat.jpeg" th:src="@{/images/wechat.jpeg}" alt="" class="ui rounded image" style="width: 100px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <!--底部：引用模块-->
+    <footer th:replace="fragments :: footbar"></footer>
+
+
+    <!--必须引入JQuery-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <!--semantic关于js的CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    <script>
+    $('.menu.toggle').click(function () {
+       $('.m-item').toggleClass('m-mobile-hide')
+    });
+
+    $('.wechat').popup({
+        popup : $('.wechat-qr'),
+        position : 'bottom center'
+    });
+
+    $('.qq').popup({
+        position : 'right center'
+    });
+
+</script>
+</body>
+</html>
